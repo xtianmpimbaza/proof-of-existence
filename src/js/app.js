@@ -41,7 +41,7 @@ App = {
         });
     },
     render: function () {
-        var electionInstance;
+        var mediaInstance;
         // var loader = $("#loader");
         // var content = $("#content");
         // var voter = $("#voter");
@@ -62,7 +62,30 @@ App = {
             $("#accountAddress").html("Current Account: " + account);
         });
 
-
+        // App.contracts.Election.deployed().then(function(instance) {
+        //     mediaInstance = instance;
+        //     return mediaInstance.mediasCount();
+        // }).then(function(mediasCount) {
+        //     var mediasResults = $("#mediasResults");
+        //     mediasResults.empty();
+        //
+        //     for (var i = 1; i <= mediasCount; i++) {
+        //         mediaInstance.medias(i).then(function(media) {
+        //             var id = media[0];
+        //             var name = media[1];
+        //             var voteCount = media[2];
+        //
+        //             // Render media Result
+        //             var mediaTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>"
+        //             mediasResults.append(mediaTemplate);
+        //         });
+        //     }
+        //
+        //     loader.hide();
+        //     content.show();
+        // }).catch(function(error) {
+        //     console.warn(error);
+        // });
 
     },
     saveMedia: function (id, title, hash) {
