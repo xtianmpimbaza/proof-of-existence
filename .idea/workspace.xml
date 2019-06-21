@@ -51,7 +51,7 @@
           <entry key="gitignore" value="1" />
           <entry key="html" value="646" />
           <entry key="js" value="1072" />
-          <entry key="md" value="426" />
+          <entry key="md" value="442" />
           <entry key="php" value="131" />
           <entry key="sol" value="348" />
         </counts>
@@ -61,7 +61,7 @@
           <entry key="HTML" value="646" />
           <entry key="JavaScript" value="1072" />
           <entry key="PHP" value="131" />
-          <entry key="PLAIN_TEXT" value="427" />
+          <entry key="PLAIN_TEXT" value="443" />
           <entry key="Solidity file" value="348" />
         </counts>
       </usages-collector>
@@ -95,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="316">
-              <caret line="32" column="97" selection-start-line="32" selection-start-column="97" selection-end-line="32" selection-end-column="97" />
+              <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -283,12 +283,12 @@
       <workItem from="1561025337060" duration="34844000" />
       <workItem from="1561104514271" duration="4515000" />
       <workItem from="1561110158478" duration="12551000" />
-      <workItem from="1561127388641" duration="11501000" />
+      <workItem from="1561127388641" duration="11619000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63411000" />
+    <option name="totallyTimeSpent" value="63529000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -498,7 +498,7 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
-          <caret line="32" column="97" selection-start-line="32" selection-start-column="97" selection-end-line="32" selection-end-column="97" />
+          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
         </state>
       </provider>
     </entry>

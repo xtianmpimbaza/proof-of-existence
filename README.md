@@ -30,4 +30,4 @@ people to verify the data authenticity.
 
 >npm run dev
 
-check the backend <a href="https://github.com/xtianmpimbaza/proof-of-exisitence-backend">Here</a>
+check the backend <a target="_blank" href="https://github.com/xtianmpimbaza/proof-of-exisitence-backend">Here</a>
