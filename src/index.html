@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Election Results</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container" style="width: 650px;">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="text-center">Proof of existence</h1>
+            <hr/>
+            <p id="accountAddress" class="text-center"></p>
+            <br/>
+            <div id="loader">
+                <p class="text-center">Loading...</p>
+            </div>
+            <!------------------------------------------ Login --------------------------->
+            <!--<div id="login">-->
+            <!--<form onSubmit="App.castVote(); return false;">-->
+
+            <!--<div class="form-group">-->
+            <!--<input type="text" class="form-control" id="email" placeholder="Username" />-->
+            <!--<input type="password" class="form-control" id="password" placeholder="Password"/>-->
+            <!--</div>-->
+
+            <!--<button type="submit" class="btn btn-primary">Login</button>-->
+            <!--<hr/>-->
+            <!--</form>-->
+            <!--</div>-->
+            <!------------------------------------------ Form --------------------------->
+            <div id="newMediaForm">
+                <form id="uploadimage">
+                    <div class="form-group">
+                        <label for="title">Event title:</label>
+                        <input type="text" class="form-control" name="title" id="title"
+                               required="required">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file">Image</label>
+                        <input type="file" class="form-control" name="file" id="file"
+                               required="required">
+                    </div>
+                    <button type="submit" class="btn btn btn-success"><i class="fa fa-save"></i> Save
+                    </button>
+                </form>
+            </div>
+            <!--<div id="voter">-->
+            <!--<form onSubmit="App.castVote(); return false;">-->
+            <!--<div class="form-group">-->
+            <!--<label for="candidatesSelect">Title</label>-->
+            <!--<select class="form-control" id="candidatesSelect">-->
+            <!--</select>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+            <!--<label for="voterAddress">File hash</label>-->
+            <!--<input type="text" class="form-control" id="voterAddress"/>-->
+            <!--</div>-->
+            <!--<button type="submit" class="btn btn-primary">Save</button>-->
+            <!--<hr/>-->
+            <!--</form>-->
+            <!--</div>-->
+
+            <!------------------------------------- Content -------------------------------->
+            <div id="content" style="display: none;">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Hash</th>
+                    </tr>
+                    </thead>
+                    <tbody id="candidatesResults">
+                    </tbody>
+                </table>
+                <hr/>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+
+<!--<script src="js/jquery/jquery.min.js"></script>-->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/web3.min.js"></script>
+<script src="js/truffle-contract.js"></script>
+<script src="js/app.js"></script>
+
+<script type="text/javascript">
+
+    $("form#uploadimage").on('submit', (function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: 'http://localhost/php/uploadfile.php',
+            enctype: 'multipart/form-data',
+            data: new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                // console.log(result);
+                var res = JSON.parse(result);
+                console.log(res);
+                if (res.saved === 1) {
+                    console.log(res.id);
+                    console.log(res.title);
+                    console.log(res.hash);
+                    App.saveMedia(res.id, res.title, res.hash);
+                } else {
+                    console.log(res.reason);
+                }
+            }
+        });
+    }));
+</script>
+</body>
+</html>
