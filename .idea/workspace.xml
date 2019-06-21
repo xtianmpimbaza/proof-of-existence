@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="332fa032-00a8-4c6f-a5a3-22abaaf73fe5" name="Default Changelist" comment="" />
+    <list default="true" id="332fa032-00a8-4c6f-a5a3-22abaaf73fe5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -29,7 +32,7 @@
           <entry key="html" value="1" />
           <entry key="js" value="18" />
           <entry key="json" value="6" />
-          <entry key="md" value="1" />
+          <entry key="md" value="2" />
           <entry key="php" value="5" />
           <entry key="sol" value="2" />
         </counts>
@@ -40,7 +43,7 @@
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="18" />
           <entry key="PHP" value="5" />
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="PLAIN_TEXT" value="5" />
           <entry key="Solidity file" value="2" />
         </counts>
       </usages-collector>
@@ -49,7 +52,7 @@
           <entry key="gitignore" value="1" />
           <entry key="html" value="646" />
           <entry key="js" value="1072" />
-          <entry key="md" value="381" />
+          <entry key="md" value="422" />
           <entry key="php" value="131" />
           <entry key="sol" value="348" />
         </counts>
@@ -59,7 +62,7 @@
           <entry key="HTML" value="646" />
           <entry key="JavaScript" value="1072" />
           <entry key="PHP" value="131" />
-          <entry key="PLAIN_TEXT" value="382" />
+          <entry key="PLAIN_TEXT" value="423" />
           <entry key="Solidity file" value="348" />
         </counts>
       </usages-collector>
@@ -80,11 +83,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="82" column="10" lean-forward="true" selection-start-line="82" selection-start-column="10" selection-end-line="82" selection-end-column="10" />
+            <state relative-caret-position="144">
+              <caret line="67" column="42" lean-forward="true" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -112,15 +124,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-238">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js-trash/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="75" column="11" lean-forward="true" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -162,7 +165,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/contracts/Election.sol" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/migrations/2_deploy_contracts.js" />
         <option value="$PROJECT_DIR$/test/election.js" />
         <option value="$PROJECT_DIR$/test/mediaTracker.js" />
@@ -174,6 +176,7 @@
         <option value="$PROJECT_DIR$/src/index.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/js/app.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -231,17 +234,6 @@
               <item name="proof-of-existence" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="proof-of-existence" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proof-of-existence" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js-trash" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proof-of-existence" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proof-of-existence" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -292,15 +284,16 @@
       <workItem from="1561025337060" duration="34844000" />
       <workItem from="1561104514271" duration="4515000" />
       <workItem from="1561110158478" duration="12551000" />
-      <workItem from="1561127388641" duration="10344000" />
+      <workItem from="1561127388641" duration="11380000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62254000" />
+    <option name="totallyTimeSpent" value="63290000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1688988" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -372,13 +365,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="20076" selection-start-line="1" selection-start-column="20068" selection-end-line="1" selection-end-column="20076" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -505,8 +491,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="82" column="10" lean-forward="true" selection-start-line="82" selection-start-column="10" selection-end-line="82" selection-end-column="10" />
+        <state relative-caret-position="144">
+          <caret line="67" column="42" lean-forward="true" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
         </state>
       </provider>
     </entry>
