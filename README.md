@@ -24,7 +24,6 @@ Clone the repo
 ```
 git clone git@github.com:xtianmpimbaza/proof-of-existence.git
 ```
-Clone backend repo
 Install npm modules
 ```
 npm install
