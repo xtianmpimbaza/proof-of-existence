@@ -20,18 +20,21 @@ people to verify the data authenticity.
 
 <h3>How to install:</h3>
 Clone the repo
+
 ```
 git clone git@github.com:xtianmpimbaza/proof-of-existence.git
 ```
-Run
+Clone backend repo
+Install npm modules
 ```
 npm install
 ```
 
 Start ganache-cli in your terminal and metamask in your google chrome
 
-inside the folder run
+Start the app
 ```
 npm run dev
 ```
-check the backend <a target="_blank" href="https://github.com/xtianmpimbaza/proof-of-exisitence-backend">Here</a>
+For the dap to work, the backend and ipfs should be working.
+Backend repository is <a target="_blank" href="https://github.com/xtianmpimbaza/proof-of-exisitence-backend">Here</a>
