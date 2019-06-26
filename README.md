@@ -19,12 +19,13 @@ Users can retrieve necessary reference data about their uploaded items to allow 
 people to verify the data authenticity.
 
 <h3>How to install:</h3>
-
+Clone the repo
 ```
-git clone git@github.com:xtianmpimbaza/proof-of-existence.git in your gitbash
+git clone git@github.com:xtianmpimbaza/proof-of-existence.git
 ```
+Run
 ```
->run npm install
+npm install
 ```
 
 Start ganache-cli in your terminal and metamask in your google chrome
