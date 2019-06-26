@@ -20,14 +20,17 @@ people to verify the data authenticity.
 
 <h3>How to install:</h3>
 
->run git clone git@github.com:xtianmpimbaza/proof-of-existence.git in your gitbash
-
+```
+git clone git@github.com:xtianmpimbaza/proof-of-existence.git in your gitbash
+```
+```
 >run npm install
+```
 
->Start ganache-cli in your terminal and metamask in your chrome
+Start ganache-cli in your terminal and metamask in your google chrome
 
->inside the folder run
-
->npm run dev
-
+inside the folder run
+```
+npm run dev
+```
 check the backend <a target="_blank" href="https://github.com/xtianmpimbaza/proof-of-exisitence-backend">Here</a>
