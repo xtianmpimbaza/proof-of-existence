@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Election Results</title>
+    <title>Proof of Existence</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -78,7 +78,8 @@
                         <th scope="col">Hash</th>
                     </tr>
                     </thead>
-                    <tbody id="candidatesResults">
+                    <tbody id="mediasResults">
+
                     </tbody>
                 </table>
                 <hr/>
@@ -114,7 +115,7 @@
             contentType: false,
             processData: false,
             success: function (result) {
-                // console.log(result);
+                console.log(result);
                 var res = JSON.parse(result);
                 console.log(res);
                 if (res.saved === 1) {

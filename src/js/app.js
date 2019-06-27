@@ -43,13 +43,13 @@ App = {
     render: function () {
         var mediaInstance;
         // var loader = $("#loader");
-        // var content = $("#content");
+        var content = $("#content");
         // var voter = $("#voter");
         var newMediaForm = $("#newMediaForm");
 
         // loader.show();
         newMediaForm.show();
-        // content.hide();
+        content.show();
         // voter.hide();
 
         web3.eth.getAccounts(function (error, accounts) {
@@ -62,46 +62,47 @@ App = {
             $("#accountAddress").html("Current Account: " + account);
         });
 
-        // App.contracts.Election.deployed().then(function(instance) {
-        //     mediaInstance = instance;
-        //     return mediaInstance.mediasCount();
-        // }).then(function(mediasCount) {
-        //     var mediasResults = $("#mediasResults");
-        //     mediasResults.empty();
-        //
-        //     for (var i = 1; i <= mediasCount; i++) {
-        //         mediaInstance.medias(i).then(function(media) {
-        //             var id = media[0];
-        //             var name = media[1];
-        //             var voteCount = media[2];
-        //
-        //             // Render media Result
-        //             var mediaTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>"
-        //             mediasResults.append(mediaTemplate);
-        //         });
-        //     }
-        //
-        //     loader.hide();
-        //     content.show();
-        // }).catch(function(error) {
-        //     console.warn(error);
-        // });
+        App.contracts.MediaTracker.deployed().then(function (instance) {
+            mediaInstance = instance;
+            // var mediasResults = $("#mediasResults");
+            $.ajax({
+                type: "POST",
+                url: "http://localhost/php/getdbmedia.php",
+                data: {
+                    token: "storedmedia"
+                },
+                success: function (data) {
+
+                    var mediaArray = JSON.parse(data);
+                    for (var i = 0; i < mediaArray.length; i++) {
+                        console.log(mediaArray[i]);
+                        mediaInstance.getMediaById(mediaArray[i]).then(function (media) {
+                            console.log(media);
+                            var title = media[0];
+                            var hash = media[1];
+                            // Render media Result
+                            var mediaTemplate = "<tr><th>" + i++ + "</th><td>" + title + "</td><td>" + hash + "</td></tr>"
+                            $("#mediasResults").append(mediaTemplate);
+                        });
+                    }
+                }
+
+            })
+        });
 
     },
     saveMedia: function (id, title, hash) {
         // console.log(hash);
         App.contracts.MediaTracker.deployed().then(function (instance) {
 
-            return instance.createMedia(id,title,hash, {from: App.account});
+            return instance.createMedia(id, title, hash, {from: App.account});
         }).then(function (result) {
-
             console.log(result);
-
+            location.reload();
         }).catch(function (err) {
             console.error(err);
         });
     },
-
 
 };
 

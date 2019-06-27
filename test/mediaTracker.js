@@ -26,10 +26,10 @@ contract("MediaTracker", function(accounts) {
     it("testing retrieving media by id", function() {
         return MediaTracker.deployed().then(function(instance) {
             acc = accounts[0];
-            return instance.getMediaByUUID(1,{ from: acc });
+            return instance.getMediaById(1,{ from: acc });
         }).then(function(create_med) {
-            assert.equal(create_med.logs.length, 1, "an event was triggered");
-            assert.equal(create_med.logs[0].event, "mediaFound", "the event type is correct");
+            assert.equal(create_med.length, 2, "Length of returned data matches");
+            // assert.equal(create_med.logs[0].event, "mediaFound", "the event type is correct");
         });
     });
 
