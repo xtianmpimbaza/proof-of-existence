@@ -1,8 +1,9 @@
 <h1>Proof of exisitence app.</h1>
 
 This project is a Truffle project that allows you to save recorded media to blockchain.
+I have used petshop box
 
-
+The network to be run on is configured in truffle-config.js as it was programmed on windows. To run it on linux the file should be renamed to truffle.js
 <h2>Description:</h2>
 This application allows users to prove existence of some information by
 showing a time stamped picture/video.
@@ -19,6 +20,10 @@ Users can retrieve necessary reference data about their uploaded items to allow 
 people to verify the data authenticity.
 
 <h3>How to install:</h3>
+
+For the dap to work, the backend and ipfs should be running.
+Backend repository is https://github.com/xtianmpimbaza/poe-backend
+
 Clone the repo
 
 ```
@@ -31,9 +36,12 @@ npm install
 
 Start ganache-cli in your terminal and metamask in your google chrome
 
+Migrate the contract
+```
+truffle migrate
+```
+
 Start the app
 ```
 npm run dev
 ```
-For the dap to work, the backend and ipfs should be working.
-Backend repository is <a target="_blank" href="https://github.com/xtianmpimbaza/proof-of-exisitence-backend">Here</a>

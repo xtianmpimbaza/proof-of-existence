@@ -1,10 +1,11 @@
 pragma solidity ^0.5.0;
 
-contract MediaTracker {
-
-    //Read users enrolement status
+contract MediaProof {
+    // to be used in curcuit braker
+    bool public contractPaused = false;
+    //Read / wtite users enrolement status
     mapping(address => bool) public enrolled;
-
+    // keeps track of amount of media stored by each user
     mapping(address => uint) public usersMedia;
     address owner;
 
@@ -17,7 +18,6 @@ contract MediaTracker {
 
     constructor() public {
         owner = msg.sender;
-        //        enroll();
     }
 
     //read stored media by id
@@ -32,27 +32,6 @@ contract MediaTracker {
     event mediaCreate (
         uint indexed _candidateId
     );
-
-    event mediaFound (
-        string title, string hash
-    );
-
-    modifier isOwner(uint256 _id){
-        require(
-            isStored[msg.sender][_id],
-            "You did not upload this file"
-        );
-        _;
-    }
-
-    // modifier isEnrolled(){
-    //     require(
-    //         enrolled[msg.sender],
-    //         "You are not registered"
-    //     );
-    //     _;
-    // }
-
     // reject duplicate enrollement modifier
     modifier notDupEnrol(){
         require(
@@ -70,7 +49,19 @@ contract MediaTracker {
         );
         _;
     }
-
+    // If the contract is paused, stop the modified function
+    modifier checkIfPaused() {
+        require(contractPaused == false, "The contract has been stopped");
+        _;
+    }
+    /* Create a modifer that checks if the msg.sender is the owner of the contract */
+    modifier onlyOwner(){
+        require(
+            msg.sender == owner,
+            "The user should be owner of the contract"
+        );
+        _;
+    }
     // reject duplicate enrollement modifier
     function enroll() public notDupEnrol() {
         enrolled[msg.sender] = true;
@@ -79,27 +70,26 @@ contract MediaTracker {
     /*
     This function stores media on the blockchain
     */
-    function createMedia(uint256 _id, string memory title, string memory _hash) public rejectDupCreation(_id) {
+    function createMedia(uint256 _id, string memory title, string memory _hash) public checkIfPaused() rejectDupCreation(_id) {
         mediaStore[_id] = Media(title, _hash, true);
         isStored[msg.sender][_id] = true;
         usersMedia[msg.sender] ++;
         emit mediaCreate(_id);
     }
 
-    //Get a single uploaded media
-    function getMediaById(uint256 _id) view public returns (string memory, string memory) {
-//        emit mediaFound(mediaStore[_id].title, mediaStore[_id]._hash);
+    //Get a single uploaded media by using its id
+    function getMediaById(uint256 _id) public view returns (string memory, string memory) {
         return (mediaStore[_id].title, mediaStore[_id]._hash);
     }
 
-    // checking if the a user ownos a media in the media store
-    function isOwnerOf(uint256 _id) public view isOwner(_id) returns (bool){
-        return (mediaStore[_id].uploaded);
+    // circuit braker to stop all public opperations
+    function circuitBreaker() public onlyOwner {// onlyOwner can call
+        if (contractPaused == false) {contractPaused = true;}
+        else {contractPaused = false;}
     }
 
-    //   counting how many media a user has
-    function userMediaCount() view public returns (uint){
-        return (usersMedia[msg.sender]);
+    // for destructing the contract permanently ()
+    function destroyContract() public onlyOwner {
+        selfdestruct(msg.sender);
     }
-
 }

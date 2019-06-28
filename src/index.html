@@ -18,7 +18,7 @@
             <p id="accountAddress" class="text-center"></p>
             <br/>
             <div id="loader">
-                <p class="text-center">Loading...</p>
+                <p class="text-center" style="color: red; border: thin red solid">Loading...</p>
             </div>
             <!------------------------------------------ Login --------------------------->
             <!--<div id="login">-->
@@ -84,8 +84,6 @@
                 </table>
                 <hr/>
             </div>
-
-
         </div>
     </div>
 </div>
@@ -106,22 +104,20 @@
 
     $("form#uploadimage").on('submit', (function (e) {
         e.preventDefault();
+        $("#loader").show();
         $.ajax({
             type: "POST",
-            url: 'http://localhost/php/uploadfile.php',
+            url: 'http://localhost/poe-server/uploadfile.php',
             enctype: 'multipart/form-data',
             data: new FormData(this),
             cache: false,
             contentType: false,
             processData: false,
             success: function (result) {
-                console.log(result);
+                // console.log(result);
                 var res = JSON.parse(result);
                 console.log(res);
                 if (res.saved === 1) {
-                    console.log(res.id);
-                    console.log(res.title);
-                    console.log(res.hash);
                     App.saveMedia(res.id, res.title, res.hash);
                 } else {
                     console.log(res.reason);

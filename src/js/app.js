@@ -18,11 +18,11 @@ App = {
                 console.error("User denied account access")
             }
         }
-// Legacy dapp browsers...
+        // Legacy dapp browsers...
         else if (window.web3) {
             App.web3Provider = window.web3.currentProvider;
         }
-// If no injected web3 instance is detected, fall back to Ganache
+        // If no injected web3 instance is detected, fall back to Ganache
         else {
             App.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545');
         }
@@ -31,27 +31,25 @@ App = {
         return App.initContract();
     },
     initContract: function () {
-        $.getJSON("MediaTracker.json", function (mediatracker) {
+        $.getJSON("MediaProof.json", function (mediaproof) {
             // Instantiate a new truffle contract from the artifact
-            App.contracts.MediaTracker = TruffleContract(mediatracker);
+            App.contracts.MediaProof = TruffleContract(mediaproof);
             // Connect provider to interact with contract
-            App.contracts.MediaTracker.setProvider(App.web3Provider);
+            App.contracts.MediaProof.setProvider(App.web3Provider);
 
             return App.render();
         });
     },
     render: function () {
         var mediaInstance;
-        // var loader = $("#loader");
+        var loader = $("#loader");
         var content = $("#content");
         // var voter = $("#voter");
         var newMediaForm = $("#newMediaForm");
 
-        // loader.show();
+        loader.hide();
         newMediaForm.show();
         content.show();
-        // voter.hide();
-
         web3.eth.getAccounts(function (error, accounts) {
             if (error) {
                 console.log(error);
@@ -62,18 +60,19 @@ App = {
             $("#accountAddress").html("Current Account: " + account);
         });
 
-        App.contracts.MediaTracker.deployed().then(function (instance) {
+        App.contracts.MediaProof.deployed().then(function (instance) {
             mediaInstance = instance;
-            // var mediasResults = $("#mediasResults");
             $.ajax({
                 type: "POST",
-                url: "http://localhost/php/getdbmedia.php",
+                url: "http://localhost/poe-server/getdbmedia.php",
                 data: {
                     token: "storedmedia"
                 },
                 success: function (data) {
-
+                    // ipfs link at localhost
+                    var ipfshost = "http://localhost:8080/ipfs/";
                     var mediaArray = JSON.parse(data);
+                    var counter = 1;
                     for (var i = 0; i < mediaArray.length; i++) {
                         console.log(mediaArray[i]);
                         mediaInstance.getMediaById(mediaArray[i]).then(function (media) {
@@ -81,8 +80,9 @@ App = {
                             var title = media[0];
                             var hash = media[1];
                             // Render media Result
-                            var mediaTemplate = "<tr><th>" + i++ + "</th><td>" + title + "</td><td>" + hash + "</td></tr>"
+                            var mediaTemplate = "<tr><th>" + counter + "</th><td>" + title + "</td><td>" + hash + "</td><td> <a href='" + ipfshost + hash + "' target=\"_blank\">View</a> </td></tr>"
                             $("#mediasResults").append(mediaTemplate);
+                            counter++
                         });
                     }
                 }
@@ -93,7 +93,7 @@ App = {
     },
     saveMedia: function (id, title, hash) {
         // console.log(hash);
-        App.contracts.MediaTracker.deployed().then(function (instance) {
+        App.contracts.MediaProof.deployed().then(function (instance) {
 
             return instance.createMedia(id, title, hash, {from: App.account});
         }).then(function (result) {
@@ -101,6 +101,7 @@ App = {
             location.reload();
         }).catch(function (err) {
             console.error(err);
+            $("#loader").hide();
         });
     },
 

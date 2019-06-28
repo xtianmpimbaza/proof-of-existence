@@ -1,5 +1,5 @@
-var MediaTracker = artifacts.require("./MediaTracker.sol");
+var MediaProof = artifacts.require("./MediaProof.sol");
 
 module.exports = function(deployer) {
-    deployer.deploy(MediaTracker);
+    deployer.deploy(MediaProof);
 };
