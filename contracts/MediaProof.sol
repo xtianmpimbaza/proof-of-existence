@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.8.7;
 
 contract MediaProof {
     // to be used in curcuit braker
@@ -90,6 +90,6 @@ contract MediaProof {
 
     // for destructing the contract permanently ()
     function destroyContract() public onlyOwner {
-        selfdestruct(msg.sender);
+        // selfdestruct(msg.sender);
     }
 }
